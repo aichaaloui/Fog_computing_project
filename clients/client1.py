@@ -120,10 +120,10 @@ if __name__ == '__main__':
         enc = OneHotEncoder()
         enc.fit(pd.DataFrame(emotion_labels))
        
-        # Télécharger et prédire pour la partie 2
-        audio_file_part2 = download_audio_part(2)
-        if audio_file_part2:
+        # Télécharger et prédire pour la partie 1
+        audio_file_part1 = download_audio_part(1)
+        if audio_file_part1:
             # Détection d'émotion
-            emotion_part2 = detect_emotion(emotion_model, audio_file_part2, enc)
+            emotion_part1 = detect_emotion(emotion_model, audio_file_part1, enc)
             # Envoi du résultat au serveur
-            send_result(2, emotion_part2)
+            send_result(2, emotion_part1)
