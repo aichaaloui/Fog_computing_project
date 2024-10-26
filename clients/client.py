@@ -8,7 +8,7 @@ from sklearn.preprocessing import OneHotEncoder
 import pandas as pd
 
 SERVER_URL = 'http://192.168.1.24:5000'  # Assurez-vous que c'est correct
-MODEL_PATH = 'C:/Users/USER/Desktop/fog/client2/models/model_weights.h5'  # Chemin vers votre modèle
+MODEL_PATH = 'C:/Users/USER/Desktop/fog/clients/models/model_weights.h5'  # Chemin vers votre modèle
 
 # Charger le modèle d'IA pour la détection d'émotion et notifier le serveur
 def load_emotion_model():

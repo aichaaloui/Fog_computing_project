@@ -8,7 +8,7 @@ from sklearn.preprocessing import OneHotEncoder
 import pandas as pd
 
 SERVER_URL = 'http://192.168.1.24:5000'  # Assurez-vous que c'est correct
-MODEL_PATH = 'C:/Users/USER/Desktop/fog/client2/models/model_weights.h5'  # Chemin vers votre modèle
+MODEL_PATH = 'C:/Users/USER/Desktop/fog/clients/models/model_weights.h5'  # Chemin vers votre modèle
 
 # Charger le modèle d'IA pour la détection d'émotion et notifier le serveur
 def load_emotion_model():
@@ -23,9 +23,9 @@ def load_emotion_model():
 # Fonction pour notifier le serveur que le client est prêt
 def notify_server_ready():
     try:
-        response = requests.post(f'{SERVER_URL}/client-ready', json={'client_id': 'client2'})
+        response = requests.post(f'{SERVER_URL}/client-ready', json={'client_id': 'client1'})
         response.raise_for_status()  # Lève une exception pour les codes d'erreur HTTP
-        print("Le serveur a été informé que client2 est prêt à recevoir la partie audio.")
+        print("Le serveur a été informé que client1 est prêt à recevoir la partie audio.")
     except requests.exceptions.HTTPError as http_err:
         print(f"Erreur HTTP lors de la notification du serveur: {http_err}")
     except requests.exceptions.RequestException as e:
@@ -126,4 +126,4 @@ if __name__ == '__main__':
             # Détection d'émotion
             emotion_part1 = detect_emotion(emotion_model, audio_file_part1, enc)
             # Envoi du résultat au serveur
-            send_result(2, emotion_part1)
+            send_result(1, emotion_part1)
